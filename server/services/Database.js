@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+import config from "../config/config"
 import User from "../models/User";
 import List from "../models/List";
-const url =
-  "mongodb+srv://admin:90ZVui6wnRLIL2e9@cluster1.kocpj.mongodb.net/SharedTodo?retryWrites=true&w=majority";
-mongoose.connect(url, { useNewUrlParser: true });
+
+mongoose.connect(config.databaseURL, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
 // const user = new User({
 //   name: "test",
 //   email: "testdsad",
@@ -15,7 +16,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 //   console.log(document);
 // });
 // const list = new List({
-//   name: "test",
+//   name: "test", 
 //   todo: {
 //     name: "test todo",
 //   },

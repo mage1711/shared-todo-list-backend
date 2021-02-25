@@ -7,13 +7,14 @@
 import app from "../app";
 import debugLib from "debug";
 import http from "http";
+import config from "../config/config"
 const debug = debugLib("sharedTodo");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || "3000");
+var port = normalizePort(config.port || "3000");
 app.set("port", port);
 
 /**
